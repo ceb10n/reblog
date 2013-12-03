@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="reblog">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+        <meta name="robots" content="index, follow"> 
+        <meta name="og:type" content="website" />
+        <meta name="ero_verify" content="19346b5d8a72469722cbd9f8faad6428" />
+        @if (ViewBag.Description != null)
+        {
+            <meta name="description" content="@ViewBag.Description">
+        }
+        @if (ViewBag.Keywords != null)
+        {
+            <meta name="keywords" content="@ViewBag.Keywords"/>
+        }
+        @if (ViewBag.OgImg != null)
+        {
+            <meta property="og:image" content="@ViewBag.OgImg" />
+        }
+        @if (ViewBag.OgUrl != null)
+        {
+            <meta property="og:url" content="@ViewBag.OgUrl" />
+        }
+        @if (ViewBag.OgTitle != null)
+        {
+            <meta property="og:title" content="@ViewBag.OgTitle" />
+        }
+        @if (ViewBag.OgDescription != null)
+        {
+            <meta property="og:description" content="@ViewBag.OgDescription" />
+        }
+        <title>
+            @if (string.IsNullOrEmpty(ViewBag.Title))
+            {
+                @:reblog - Agregador de Links e Conteúdo
+            }
+            else
+            {
+                @ViewBag.Title
+            }
+        </title>
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+        <![endif]-->
+
+        @Scripts.Render("~/bundles/modernizr")
+
+        <link href="carousel.css" rel="stylesheet">
+        <style>
+            body {
+                background:#fff;
+            }
+
+            .jumbotron {
+                 background-color: #808080;
+                 color: #fff;
+                 line-height: 2.1428571435;
+                 margin-bottom: 0;
+            }
+            .navbar {
+                background:#df1818;
+                color: #fff;
+                border: none;
+                margin-bottom: 0;
+                -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+                -moz-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+            }
+            .navbar .nav > li > a:hover {
+                color:  #fff;
+            }
+            .navbar .nav > li > a {
+                color:  #fff;
+            }
+            .navbar-brand .nav > li > a {
+                color:  #fff;
+            }
+            .navbar-brand .nav > li > a:hover {
+                color:  #fff;
+            }
+            .navbar-brand {
+                color: #fff !important;
+            }
+        </style>
+          <script>
+              (function (i, s, o, g, r, a, m) {
+                  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                      (i[r].q = i[r].q || []).push(arguments)
+                  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+              })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+              ga('create', 'UA-45169456-1', 're.blog.br');
+              ga('send', 'pageview');
+
+          </script>
+    </head>
+<!-- NAVBAR
+================================================== -->
+
+    <body>
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=402775926490047";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="navbar navbar-inverse">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand navbar-left" href="@Url.Action("Index", "Home")">reblog</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="@Url.Action("Index", "Home")">home</a></li>
+                <li><a href="@Url.Action("Top", "Home")">mais lidas</a></li>
+                <li><a href="@Url.Action("Blogs", "Home")">blogs</a></li>
+                <li><a href="@Url.Action("About", "Home")">sobre</a></li>
+                <li><a href="javascript:window.open('mailto:boss@re.blog.br');">contato</a></li>
+              </ul>
+            </div><!--/.navbar-collapse -->
+          </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/holder/2.0/holder.min.js"></script>
+    
+        @RenderBody()
+        <div class="container">
+            <footer>
+
+                <div class="text-center">
+                    
+                    <hr />
+                    <div class="fb-like" data-href="https://www.facebook.com/reblogbr" data-width="600" data-height="80" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
+                    
+                    <div class="g-follow" data-annotation="bubble" data-height="24" data-href="//plus.google.com/106586085709771017525" data-rel="publisher"></div>
+                    </div>
+            
+                <hr />
+                <p class="pull-right"><a href="#">voltar para o topo.</a></p>
+                <p>&copy; @DateTime.Now.Year reblog. &middot; <a href="@Url.Action("About", "Home")">sobre</a></p>
+          </footer>
+        </div>
+        <!-- BEGIN EroAdvertising ADSPACE CODE -->
+        <script type="text/javascript" language="javascript" charset="utf-8" src="http://adspaces.ero-advertising.com/adspace/276496.js"></script>
+        <!-- END EroAdvertising ADSPACE CODE -->
+      </body>
+</html>

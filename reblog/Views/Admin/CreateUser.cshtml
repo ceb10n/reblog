@@ -1,0 +1,50 @@
+﻿@model reblog.Models.RegisterModel
+
+<div class="container">
+    <div class="row" id="login_modal">
+        <div class="col-lg-12">
+            <h3>novo usuário *o*!</h3>
+            @using (Html.BeginForm(new { @class = "horizontal well" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <fieldset>
+                    <legend></legend>
+                    <div class="control-group">
+                        <label class="control-label" for="name">Nome</label>
+                        <div class="controls">
+                            <input type="text" class="form-control input-xlarge" id="name" name="model.Name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="nick">Apelido</label>
+                        <div class="controls">
+                            <input type="text" class="form-control input-xlarge" id="nick" name="model.Nick">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="controls">
+                            <input type="text" class="form-control input-xlarge" id="email" name="model.Email">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">Senha</label>
+                        <div class="controls">
+                            <input type="password" class="form-control input-xlarge" id="password" name="model.Password">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="confirmpassword">Confirmar Senha</label>
+                        <div class="controls">
+                            <input type="password" class="form-control input-xlarge" id="confirmpassword" name="model.ConfirmPassword">
+                        </div>
+                    </div>
+                    <hr />
+                    <button class="btn btn-primary" type="submit">Efetuar Cadastro</button>
+                    <button type="reset" class="btn">Cancelar</button>
+                </fieldset>  
+            }
+        </div>
+    </div>
+</div>

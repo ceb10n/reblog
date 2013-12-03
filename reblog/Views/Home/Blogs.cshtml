@@ -1,0 +1,14 @@
+﻿@model IEnumerable<reblog.App.Domain.Owner>
+<div class="container">
+    <div class="row">
+        <br />
+        <h3>Quem já reblogamos ;)</h3>
+        <br />
+        @foreach (reblog.App.Domain.Owner owner in Model)
+        {
+            <div class="col-md-3"> 
+                <h4><a target="_blank" href="@owner.Url">@owner.Name</a></h4>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_FapLayout.cshtml";
+}
+
+<style type="text/css">
+    .thumbnail {
+        position:relative;
+        overflow:hidden;
+    }
+ 
+    .caption {
+        position:absolute;
+        top:0;
+        right:0;
+        background:rgba(0, 0, 0, 0.6);
+        width:100%;
+        height:100%;
+        padding:2%;
+        display: none;
+        text-align:center;
+        color:#fff !important;
+        z-index:2;
+    }
+
+    .caption a {
+        color: white;
+    } 
+
+    .caption-btm{
+        right:0;
+        background: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 33%;
+        position: absolute;
+        bottom: 4px;
+        color: #fff;
+        padding: 2%;
+        z-index:2;
+    }
+</style>
+
+<div class="container">
+    <div class="row">  
+        <br />     
+        <div class="text-center hidden-xs">
+            <!-- BEGIN EroAdvertising ADSPACE CODE -->
+<script type="text/javascript" language="javascript" charset="utf-8" src="http://adspaces.ero-advertising.com/adspace/276854.js"></script>
+<!-- END EroAdvertising ADSPACE CODE -->
+
+        </div>
+        <br />     
+    </div>
+    @if (ViewBag.TodayFap != null) {
+        <div class="row">
+            @foreach (reblog.App.Domain.Post post in ViewBag.TodayFap)
+            {
+                <div class="col-md-3">            
+                    <div itemscope itemtype="http://schema.org/Article">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <p><a itemprop="description" href="@Url.Action("FapPost", "Home", new { id = post.Id })" target="_blank">@post.Summary</a></p>
+                                <p><a itemprop="url" href="@Url.Action("FapPost", "Home", new { id = post.Id })" target="_blank" class="label label-danger" rel="tooltip" title="Visualizar">ver reblog</a></p>
+                            </div>
+                            <div itemprop="name" class="caption-btm">@post.Name</div> 
+                            <img itemprop="image" class="img-responsive" src="@Url.Content("~/Uploads/" + post.Date.ToString("dd-MM-yyyy") + "/" + post.Id + ".jpg")">
+                        </div>
+                    </div>
+                </div> 
+            }       
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("[rel='tooltip']").tooltip();
+
+        $('.thumbnail').hover(
+            function () {
+                $(this).find('.caption').slideDown(250); //.fadeIn(250)
+                $(this).find('.caption-btm').hide(100);
+            },
+            function () {
+                $(this).find('.caption').slideUp(250); //.fadeOut(205)
+                $(this).find('.caption-btm').show(450);
+            }
+        );
+
+    });
+</script>

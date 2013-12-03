@@ -1,0 +1,31 @@
+﻿<div class="container">
+    <div class="row" id="login_modal">
+        <div class="col-lg-12">
+            <h3>login ;)</h3>
+            @using (Html.BeginForm(new { @class = "horizontal well" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <fieldset>
+                    <legend></legend>
+                    <div class="control-group">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="controls">
+                            <input type="text" class="form-control input-xlarge" id="email" name="model.UserName">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">Senha</label>
+                        <div class="controls">
+                            <input type="password" class="form-control input-large" id="password" name="model.Password">
+                        </div>
+                    </div>
+                    <hr />
+                    <button class="btn btn-primary" type="submit">Entrar</button>
+                    <button type="reset" class="btn">Cancelar</button>
+                    <hr />
+                </fieldset>  
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+﻿<div class="container">
+    @if (ViewBag.Today != null) {
+        <div class="row">
+            @foreach (reblog.App.Domain.Post post in ViewBag.Today) {
+                <div class="col-md-4">            
+                    <div itemscope itemtype="http://schema.org/Article">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <p><a itemprop="description" href="@Url.Action("Post", "Home", new { id = post.Id })" target="_blank">@post.Summary</a></p>
+                                <p><a itemprop="url" href="@Url.Action("Post", "Home", new { id = post.Id })" target="_blank" class="label label-danger" rel="tooltip" title="Visualizar">ver reblog</a></p>
+                            </div>
+                            <div itemprop="name" class="caption-btm">@post.Name</div> 
+                            @{ var img = "http://re.blog.br/" + "Uploads/" + post.Date.ToString("dd-MM-yyyy") + "/" + post.Id + ".jpg"; }
+                            <img itemprop="image" class="img-responsive" data-original="@img">
+                            @*<img itemprop="image" class="img-responsive" src="@Url.Content("~/Uploads/" + post.Date.ToString("dd-MM-yyyy") + "/" + post.Id + ".jpg")">*@
+                        </div>
+                    </div>
+                </div> 
+            }       
+        </div>
+    }
+
+    <hr />
+    <div class="row">
+        <div class="col-md-3 thumb ">
+            <script type="text/javascript">
+                bb_bid = "1637585";
+                bb_lang = "pt-BR";
+                bb_name = "custom";
+                bb_limit = "4";
+                bb_format = "bbm";
+            </script>
+            <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+        </div>
+        <div class="col-md-3 thumb ">
+            <script type="text/javascript">
+                bb_bid = "1637585";
+                bb_lang = "pt-BR";
+                bb_name = "custom";
+                bb_limit = "4";
+                bb_format = "bbm";
+            </script>
+            <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+        </div>
+        <div class="col-md-3 thumb ">
+            <script type="text/javascript">
+                bb_bid = "1637585";
+                bb_lang = "pt-BR";
+                bb_name = "custom";
+                bb_limit = "4";
+                bb_format = "bbm";
+            </script>
+            <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+        </div>
+        <div class="col-md-3 thumb ">
+            <script type="text/javascript">
+                bb_bid = "1637585";
+                bb_lang = "pt-BR";
+                bb_name = "custom";
+                bb_limit = "4";
+                bb_format = "bbm";
+            </script>
+            <script type="text/javascript" src="http://static.boo-box.com/javascripts/embed.js"></script>
+        </div>
+    </div>
+    <hr />
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("[rel='tooltip']").tooltip();
+
+            $('.thumbnail').hover(
+                function () {
+                    $(this).find('.caption').slideDown(250); //.fadeIn(250)
+                    $(this).find('.caption-btm').hide(100);
+                },
+                function () {
+                    $(this).find('.caption').slideUp(250); //.fadeOut(205)
+                    $(this).find('.caption-btm').show(450);
+                }
+            );
+
+            $(".img-responsive").lazyload({
+                effect: "fadeIn"
+            });
+
+        });
+</script>
+}
+

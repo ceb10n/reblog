@@ -1,0 +1,107 @@
+﻿@model reblog.App.Domain.Post
+
+<style type="text/css">
+    a {
+        color: black;
+    }
+    a hover {
+        color: grey;
+    }
+    .post {
+        background-color: white;
+        -webkit-box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        padding: 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="row post" >
+        <div itemscope itemtype="http://schema.org/Article">
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <img itemprop="image" width="300" height="300" src="@Url.Content("~/Uploads/" + Model.Date.ToString("dd-MM-yyyy") + "/" + Model.Id + ".jpg")" alt="@Model.Name" />
+            </div>
+            <div class="col-lg-8 col-md-8 col-xs-12 thumb">
+                    <h2>
+                        <a itemprop="name" href="@Model.Url">@Model.Name</a>
+                    </h2>
+
+                    <h4>
+                        <a itemprop="description" href="@Model.Url">@Model.Summary</a>
+                    </h4>
+                    <span class="label label-info">
+                        <a style="color: #fff;" href="@Model.Url">VER POST ORIGINAL</a>
+                    </span>
+                    <br /><br />
+
+                    <div class="fb-like" data-href="https://www.facebook.com/reblogbr" data-width="10" data-height="20" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false" title="likes do post original"></div>
+                
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://re.blog.br/posts/@Model.Id" data-text="@Model.Name" data-lang="pt" data-count="none" data-hashtags="reblogbr">Tweetar</a>
+                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                    
+                    <div class="g-plusone" data-size="medium" data-annotation="none"></div>
+
+                    <script type="text/javascript">
+                        window.___gcfg = { lang: 'pt-BR' };
+
+                        (function () {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/plusone.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                    </script>
+                
+                    <br />
+                    <br />
+                
+                    <strong>fonte:</strong> <span itemprop="creator">@Model.Owner.Name</span> <br />
+                    <strong>categoria:</strong> <span itemprop="keywords">@Model.Category.Name</span> <br />
+                    <strong>postado por:</strong> <span itemprop="author">@Model.WhoPosted.Nick</span> <br />
+                </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-12 thumb ">
+           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 300x250 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-9271797057162180"
+                 data-ad-slot="5453759607"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-12 thumb ">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- 300x250 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-9271797057162180"
+                 data-ad-slot="5453759607"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-12 thumb ">
+            <!-- LOMADEE - BEGIN -->
+            <script type="text/javascript" language="javascript">
+                lmd_source = "27785717";
+                lmd_si = "33770139";
+                lmd_pu = "22500296";
+                lmd_c = "BR";
+                lmd_wi = "300";
+                lmd_he = "250";
+            </script>
+            <script src="http://image.lomadee.com/js/ad_lomadee.js" type="text/javascript" language="javascript"></script>
+            <!-- LOMADEE - END -->
+        </div>
+    </div>
+</div>

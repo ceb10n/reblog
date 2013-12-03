@@ -1,0 +1,196 @@
+﻿@model reblog.App.Domain.Post
+
+<style type="text/css">
+    .input_group {
+        max-width: 200px;
+        min-width: 100px;
+    }
+</style>
+<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        @if (ViewBag.Error != null)
+        {
+            <h3>@ViewBag.Error</h3>
+        }
+        <div class="col-lg-12">
+            @using (Html.BeginForm("CreatePost", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend>Post</legend>
+
+                    <div class="control-group">
+                        <label class="control-label" for="name">Título</label>
+                        <div class="controls">
+                            <input type="text" name="post.Name" id="name" class="form-control input-xlarge" maxlength="140" />
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label" for="summary">Resumo</label>
+                        <div class="controls">
+                            <input type="text" name="post.Summary" id="summary" class="form-control input-xlarge" maxlength="350"/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="url">Url</label>
+                        <div class="controls">
+                            <input type="text" name="post.Url" id="url" class="form-control input-xlarge" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="date">Data</label>
+                        <div class="controls">
+                            <input type="text" name="post.Date" id="date" class="form-control input-xlarge" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="owner">Site</label>
+                        <div class="controls">
+                            <input type="text" id="owner" class="form-control input-xlarge" />
+                            <input type="hidden" id="ownerid" name="post.Owner.Id" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="category">Categoria</label>
+                        <div class="controls">
+                            <input type="text" id="category" class="form-control input-xlarge"/>
+                            <input type="hidden" id="categoryid" name="post.Category.Id" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="tag">Tags - Separados por vírgula</label>
+                        <div class="controls">
+                            <input type="text" name="tags" id="tag" class="form-control input-xlarge" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="image">Imagem - CUIDADO! Ela será redimensionada para 400x300!</label>
+                        <div class="controls">
+                            <input type="file" name="image" id="image" class="form-control input-xlarge" />
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="priority">Prioridade - 0 para posts comuns</label>
+                        <div class="controls">
+                            <input type="text" name="post.Priority" id="priority" class="form-control input-xlarge" />
+                        </div>
+                    </div>
+
+                    <p>
+                        <input type="submit" value="Create" />
+                    </p>
+                </fieldset>
+            }
+        </div>
+    </div>
+    <div class="row">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        $.datepicker.regional['pt'] = {
+            closeText: 'Fechar',
+            prevText: '<Anterior',
+            nextText: 'Seguinte',
+            currentText: 'Hoje',
+            monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho',
+            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+            'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'S&aacute;bado'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b'],
+            dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b'],
+            weekHeader: 'Sem',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['pt']);
+        $("#date").datepicker();
+
+        $("#owner").autocomplete({
+            source: '@Url.Action("AllOwners", "Admin")',
+            
+            select: function (event, ui) {
+                event.preventDefault();
+                var label = ui.item.label;
+                var value = ui.item.value;
+                if (label.indexOf("Adicionar ") != -1) {
+                    $.ajax({
+                        cache: false,
+                        url: "@Url.Action("CreateSite", "Admin")",
+                        type: 'POST',
+                        dataType: "json",
+                        data: { owner : $("#owner").val() },
+                        success: function (data) {
+
+                            $("#ownerid").val(data.value);
+                            $("#owner").val(data.label);
+                            alert(data.label + " salvo com sucesso");
+                        },
+                        error: function () {
+                            alert("Não foi possivel salvar");
+                        }
+                    });
+                } else {
+                    $("#ownerid").val(value);
+                    $("#owner").val(label);
+                }
+            }
+        });
+
+        $("#category").autocomplete({
+            source: '@Url.Action("AllCategories", "Admin")',
+
+             select: function (event, ui) {
+                 event.preventDefault();
+                 var label = ui.item.label;
+                 var value = ui.item.value;
+                 if (label.indexOf("Adicionar ") != -1) {
+                     $.ajax({
+                         cache: false,
+                         url: "@Url.Action("CreateCategory", "Admin")",
+                        type: 'POST',
+                        dataType: "json",
+                        data: { category: $("#category").val() },
+                        success: function (data) {
+
+                            $("#categoryid").val(data.value);
+                            $("#category").val(data.label);
+                            alert(data.label + " salvo com sucesso");
+                        },
+                        error: function () {
+                            alert("Não foi possivel salvar");
+                        }
+                    });
+                } else {
+                     $("#categoryid").val(value);
+                     $("#category").val(label);
+                }
+            }
+         });
+
+    });
+</script>
+}
+
+

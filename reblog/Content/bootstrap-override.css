@@ -1,0 +1,65 @@
+﻿body {
+    background:#eeeeee;
+}
+
+.jumbotron {
+        background-color: #808080;
+        color: #fff;
+        line-height: 2.1428571435;
+        margin-bottom: 0;
+}
+
+.navbar {
+    background:#eeeeee;
+    border: none;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+}
+.navbar .nav > li > a:hover {
+    color:  #eeeeee;
+}
+.navbar-brand .nav > li > a:hover {
+    color:  #eeeeee;
+}
+
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+
+.thumbnail img {
+    width: 100%;
+    
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(0, 0, 0, 0.6);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align:center;
+    color:#fff !important;
+    z-index:2;
+}
+
+.caption a {
+    color: white;
+} 
+
+.caption-btm{
+    right:0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 33%;
+    position: absolute;
+    bottom: 4px;
+    color: #fff;
+    padding: 2%;
+    z-index:2;
+}

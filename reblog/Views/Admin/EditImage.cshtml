@@ -1,0 +1,49 @@
+﻿@model reblog.App.Domain.Post
+<link href="/Content/jquery.Jcrop.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <h3>Ajuste o tamanho e as propriedades da imagem</h3>
+    <hr />
+    <img id="img" class="img-responsive" src="@Url.Content("~/Uploads/" + Model.Date.ToString("dd-MM-yyyy") + "/temp-" + Model.Id + ".jpg")">
+    <input type="button" id="btnCrop" onclick="javascript: cropImage();" value="Crop Image" />
+</div>
+
+@section scripts {
+    <script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.Jcrop.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var x = 0, y = 0, w = 0, h = 0;
+
+        $(document).ready(function () {
+            $('#img').Jcrop({
+                onChange: setCoords,
+                onSelect: setCoords,
+                aspectRatio: 1
+            });
+        });
+
+        function setCoords(c) {
+            x = c.x;
+            y = c.y;
+            w = c.w;
+            h = c.h;
+        };
+
+        function cropImage() {
+            $.ajax({
+                url: "/Admin/CropImage",
+                type: "POST",
+                data: { postid: '@Model.Id', postdate: '@Model.Date', x: x, y: y, w: w, h: h },
+                success: function (data) {
+                    window.location = ".."
+                },
+                error: function (xhr, status, error) {
+                    // Show the error
+                    $('#lblMethodError').text(xhr.responseText);
+                    $('#lblMethodError').show();
+                }
+            });
+
+        }
+    </script>
+}

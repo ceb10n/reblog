@@ -1,0 +1,66 @@
+﻿@model IEnumerable<reblog.App.Domain.User>
+
+<div class="container">
+    <h2>sobre o reblog</h2> 
+    <hr />        
+    <div class="row"> 
+        <div class="col-lg-12 col-md-12 col-xs-12">  
+            <p>
+                O <a href="http://re.blog.br">reblog</a> é um agregador de conteúdo. Basicamente os seus editores
+                acessam diversos sites interessantes ou não durante o dia, e o que acham relevante publicam aqui.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">  
+            <h3>Pessoas não tão interessantes que contribuem</h3>
+            @if (ViewBag.Users != null) {
+                foreach (reblog.App.Domain.User user in ViewBag.Users)
+                {
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb ">
+                        <div class="thumbnail">
+                            <a href="@Url.Action("UserDetail", new { nick = user.Nick })" title="@user.Nick" class="thumbnail">
+                                <img class="img-responsive" src="@Url.Content("~/Uploads/Users/" + user.Id + ".jpg")">
+                            </a>
+                            <div class="caption postcaption">
+                                <a href="@Url.Action("UserDetail", new { nick = user.Nick })" title="@user.Nick"><h4>@user.Nick</h4></a>
+                            </div>
+                            @if (string.IsNullOrEmpty(user.Twitter) == false)
+                                {
+                                    <a href="@user.Twitter"><img src="@Url.Content("~/Images/social/32px/twitter.png")" style="width: 32px; height: 32px" /></a>
+                                }
+                                @if (string.IsNullOrEmpty(user.Facebook) == false)
+                                {
+                                    <a href="@user.Facebook"><img src="@Url.Content("~/Images/social/32px/facebook.png")" style="width: 32px; height: 32px" /></a>
+                                }
+                                @if (string.IsNullOrEmpty(user.Tumblr) == false)
+                                {
+                                    <a href="@user.Tumblr"><img src="@Url.Content("~/Images/social/32px/tumblr.png")" style="width: 32px; height: 32px" /></a>
+                                }
+                                @if (string.IsNullOrEmpty(user.LastFM) == false)
+                                {
+                                    <a href="@user.LastFM"><img src="@Url.Content("~/Images/social/32px/lastfm.png")" style="width: 32px; height: 32px" /></a>
+                                }
+                                @if (string.IsNullOrEmpty(user.Orkut) == false)
+                                {
+                                    <a href="@user.Orkut"><img src="@Url.Content("~/Images/social/32px/orkut.png")" style="width: 32px; height: 32px" /></a>
+                                }
+                        </div>
+                        <br />
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">  
+            <p>
+                Notem que de maneira nenhuma queremos plagiar o conteúdo publicado pelos sites aqui presentes. Nossa política nos
+                permite apenas colocar o título e um breve resumo de no máximo 140 caracteres. O post integral apenas pode ser visualizado
+                no site que realizou a publicação. Caso você seja dono de algum site/blog e não queira o seu conteúdo seja publicado / divulgado
+                no reblog, por favor, entre em contato conosco que retiraremos as publicações.
+            </p>
+        </div>
+    </div>
+</div>
