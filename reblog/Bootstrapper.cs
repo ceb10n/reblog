@@ -12,7 +12,6 @@ namespace reblog
         public static IUnityContainer Initialise()
         {
             var container = BuildUnityContainer();
-
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
             return container;
