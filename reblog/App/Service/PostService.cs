@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using reblog.App.Domain;
 using reblog.App.Repository;
 
@@ -21,11 +18,6 @@ namespace reblog.App.Service
             return repository.Posts();
         }
 
-        public List<Post> FapPosts()
-        {
-            return repository.FapPosts();
-        }
-
         public List<Post> TopPosts()
         {
             return repository.TopPosts();
@@ -36,9 +28,9 @@ namespace reblog.App.Service
             return repository.Owners();
         }
 
-        public Post Get(long id)
+        public List<User> Users()
         {
-            return repository.Get(id);
+            return repository.Users();
         }
 
         public Post View(long id)
@@ -47,16 +39,6 @@ namespace reblog.App.Service
             if (post != null)
                 post.Hits += 1;
             return repository.Update(post);
-        }
-
-        public void Update(Post post)
-        {
-            repository.Update(post);
-        }
-
-        public List<User> Users()
-        {
-            return repository.Users();
         }
     }
 }

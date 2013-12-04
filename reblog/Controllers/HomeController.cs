@@ -20,20 +20,7 @@ namespace reblog.Controllers
             return View();
         }
 
-        public ActionResult FapIndex()
-        {
-            DefineViewbagForFapIndex();
-            return View();
-        }
-
         public ActionResult Post(long id)
-        {
-            var post = service.View(id);
-            DefineViewbagForPost(post);
-            return View(post);
-        }
-
-        public ActionResult FapPost(long id)
         {
             var post = service.View(id);
             DefineViewbagForPost(post);
@@ -70,18 +57,6 @@ namespace reblog.Controllers
         private void DefineViewbagForIndex(List<Post> posts)
         {
             ViewBag.Today = posts;
-            ViewBag.Title = "reblog - Links interessantes por pessoas não tão interessantes";
-            ViewBag.Description = "reblog - Links interessantes por pessoas não tão interessantes";
-            ViewBag.Keywords = "reblog, reblogbr, curiosidades, diversao, fotos, musica, videos, games, gatas, imagens, link, links, agregador, internet, tecnologia, links interessantes, agregador de links, blogs";
-            ViewBag.OgUrl = "http://re.blog.br";
-            ViewBag.OgTitle = "reblog - inks interessantes por pessoas não tão interessantes";
-            ViewBag.OgImg = Url.Content("~/Images/reblog.jpg");
-            ViewBag.OgDescription = "reblog - Links interessantes por pessoas não tão interessantes";
-        }
-
-        private void DefineViewbagForFapIndex()
-        {
-            ViewBag.TodayFap = service.FapPosts();
             ViewBag.Title = "reblog - Links interessantes por pessoas não tão interessantes";
             ViewBag.Description = "reblog - Links interessantes por pessoas não tão interessantes";
             ViewBag.Keywords = "reblog, reblogbr, curiosidades, diversao, fotos, musica, videos, games, gatas, imagens, link, links, agregador, internet, tecnologia, links interessantes, agregador de links, blogs";

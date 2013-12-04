@@ -20,20 +20,6 @@ namespace reblog.App.Repository
         public List<Post> Posts()
         {
             return session.CreateCriteria<Post>()
-                .CreateAlias("Category", "category")
-                .Add(Restrictions.Not(Restrictions.Eq("category.Name", "adulto")))
-                .AddOrder(Order.Desc("Date"))
-                .AddOrder(Order.Desc("Priority"))
-                .AddOrder(Order.Desc("Hits"))
-                .SetMaxResults(64)
-                .List<Post>() as List<Post>;
-        }
-
-        public List<Post> FapPosts()
-        {
-            return session.CreateCriteria<Post>()
-                .CreateAlias("Category", "category")
-                .Add(Restrictions.Eq("category.Name", "adulto"))
                 .AddOrder(Order.Desc("Date"))
                 .AddOrder(Order.Desc("Priority"))
                 .AddOrder(Order.Desc("Hits"))
@@ -44,8 +30,6 @@ namespace reblog.App.Repository
         public List<Post> TopPosts()
         {
             return session.CreateCriteria<Post>()
-                .CreateAlias("Category", "category")
-                .Add(Restrictions.Not(Restrictions.Eq("category.Name", "adulto")))
                 .AddOrder(Order.Desc("Hits"))
                 .SetMaxResults(64)
                 .List<Post>() as List<Post>;

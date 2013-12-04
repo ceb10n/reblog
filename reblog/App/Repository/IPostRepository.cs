@@ -10,7 +10,6 @@ namespace reblog.App.Repository
     public interface IPostRepository
     {
         List<Post> Posts();
-        List<Post> FapPosts();
         List<Post> TopPosts();
         List<Owner> Owners();
         Post Get(long id);
