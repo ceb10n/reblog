@@ -222,7 +222,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RssController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,80 +286,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\Uploadify\cancel.png" />
-    <Content Include="Content\Uploadify\expressInstall.swf" />
-    <Content Include="Content\Uploadify\jquery.uploadify.v2.1.4.js" />
-    <Content Include="Content\Uploadify\jquery.uploadify.v2.1.4.min.js" />
-    <Content Include="Content\Uploadify\swfobject.js" />
-    <Content Include="Content\Uploadify\uploadify.allglyphs.swf" />
-    <Content Include="Content\Uploadify\uploadify.css" />
-    <Content Include="Content\Uploadify\uploadify.swf" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Uploadify\check.php" />
-    <Content Include="Content\Uploadify\com\adobe\air\logging\FileTarget.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\HMAC.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\MD5.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\MD5Stream.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\SHA1.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\SHA224.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\SHA256.as" />
-    <Content Include="Content\Uploadify\com\adobe\crypto\WSSEUsernameToken.as" />
-    <Content Include="Content\Uploadify\com\adobe\errors\IllegalStateError.as" />
-    <Content Include="Content\Uploadify\com\adobe\fileformats\vcard\Address.as" />
-    <Content Include="Content\Uploadify\com\adobe\fileformats\vcard\Email.as" />
-    <Content Include="Content\Uploadify\com\adobe\fileformats\vcard\Phone.as" />
-    <Content Include="Content\Uploadify\com\adobe\fileformats\vcard\VCard.as" />
-    <Content Include="Content\Uploadify\com\adobe\fileformats\vcard\VCardParser.as" />
-    <Content Include="Content\Uploadify\com\adobe\images\BitString.as" />
-    <Content Include="Content\Uploadify\com\adobe\images\JPGEncoder.as" />
-    <Content Include="Content\Uploadify\com\adobe\images\PNGEncoder.as" />
-    <Content Include="Content\Uploadify\com\adobe\net\DynamicURLLoader.as" />
-    <Content Include="Content\Uploadify\com\adobe\net\IURIResolver.as" />
-    <Content Include="Content\Uploadify\com\adobe\net\MimeTypeMap.as" />
-    <Content Include="Content\Uploadify\com\adobe\net\proxies\RFC2817Socket.as" />
-    <Content Include="Content\Uploadify\com\adobe\net\URI.as" />
-    <Content Include="Content\Uploadify\com\adobe\net\URIEncodingBitmap.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\Database.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\Definition.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\Dict.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\DictionaryServer.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\ConnectedEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\DatabaseEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\DefinitionEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\DefinitionHeaderEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\DictionaryServerEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\DisconnectedEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\ErrorEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\MatchEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\MatchStrategiesEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\events\NoMatchEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\MatchStrategy.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\Response.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\util\CompleteResponseEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\protocols\dict\util\SocketHelper.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSON.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSONDecoder.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSONEncoder.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSONParseError.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSONToken.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSONTokenizer.as" />
-    <Content Include="Content\Uploadify\com\adobe\serialization\json\JSONTokenType.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\ArrayUtil.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\DateUtil.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\DictionaryUtil.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\IntUtil.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\NumberFormatter.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\StringUtil.as" />
-    <Content Include="Content\Uploadify\com\adobe\utils\XMLUtil.as" />
-    <Content Include="Content\Uploadify\com\adobe\webapis\events\ServiceEvent.as" />
-    <Content Include="Content\Uploadify\com\adobe\webapis\ServiceBase.as" />
-    <Content Include="Content\Uploadify\com\adobe\webapis\URLLoaderBase.as" />
-    <Content Include="Content\Uploadify\uploadify.fla" />
-    <Content Include="Content\Uploadify\uploadify.php" />
     <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\ideafixa.png" />
@@ -435,8 +365,6 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\lazyload.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="sitemap.xml" />
-    <Content Include="Unity.Mvc4.README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -444,7 +372,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -478,9 +405,6 @@
     <Content Include="Views\Home\Post.cshtml" />
     <Content Include="Views\Admin\CreateCategory.cshtml" />
     <Content Include="Views\Admin\EditImage.cshtml" />
-    <Content Include="Views\Shared\_FapLayout.cshtml" />
-    <Content Include="Views\Home\FapIndex.cshtml" />
-    <Content Include="Views\Home\FapPost.cshtml" />
     <Content Include="Views\Home\Blogs.cshtml" />
     <Content Include="Uploads\Web.config" />
   </ItemGroup>

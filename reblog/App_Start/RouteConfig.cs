@@ -24,16 +24,6 @@ namespace reblog
                 defaults: new { controller = "Home", action = "Blogs", nick = UrlParameter.Optional });
 
             routes.MapRoute(
-                name: "fapindex",
-                url: "fap",
-                defaults: new { controller = "Home", action = "FapIndex", nick = UrlParameter.Optional });
-
-            routes.MapRoute(
-                name: "fappost",
-                url: "fap/post/{id}",
-                defaults: new { controller = "Home", action = "FapPost", nick = UrlParameter.Optional });
-
-            routes.MapRoute(
                 name: "userdetail",
                 url: "user/{nick}",
                 defaults: new { controller = "Home", action = "UserDetail", nick = UrlParameter.Optional });
